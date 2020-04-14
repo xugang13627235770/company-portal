@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="index/css/style.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="index/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="index/js/banner.js"></script>
+<script type="text/javascript" src="index/js/lrtk.js"></script>
+<script type="text/javascript" src="index/js/public.js"></script>
+<script type="text/javascript" src="index/js/banner_1.js"></script>
+<script type="text/javascript" src="index/js/productlist_roll.js"></script>
+<!--[if IE 6]>
+<script src="index/js/DDPngMin.js"></script>
+<script>DD_belatedPNG.fix('.leftimg img,.rightimg img,.ico');</script>
+<![endif]-->
+<title>关于</title>
+</head>
+<body>
+<div class="header">
+  <div class="logo"><a href=""><img src="index/images/img/huamu.png" width="100%" /></a></div>
+  <div class="nav">
+    <ul>
+      <li><a href="index.html" class="s1"></a></li>
+      <li><a href="about.html" class="s2"></a></li>
+      <li><a href="product.html" class="s3"></a></li>
+      <li><a href="list_article.html?type=1" class="s4"></a></li>
+      <li><a href="contactus.html" class="s5"></a></li>
+    </ul>
+  </div>
+  <div class="tell"> <img src="index/images/tell1.jpg" /> </div>
+</div>
+<div class="warp_n">
+  <div class="banner_n">
+    <div id="focus">
+      <ul>
+        <li th:each="indexPic : ${indexPicList}">
+        <a th:href="${indexPic.content}" target="_blank"><img th:src="${indexPic.pic}"/></a>
+        </li>
+        <!-- 
+        <li><a href="" target="_blank"><img src="index/images/img/tab2.jpg"/></a></li>
+        <li><a href="" target="_blank"><img src="index/images/img/tab3.jpg"/></a></li>
+         -->
+      </ul>
+    </div>
+    <div class="banner_n_bo">
+      <div class="banner_noti">
+         <div class="title"><img src="index/images/notice_n_ab.png" /></div>
+        <div class="noti_con"> <span th:text="${#dates.format(gginfo.gtmCreate, '[yyyy-MM-dd]')}">[2013/09/05]</span>
+          <p><a th:href="'shownews.html?id='+${gginfo.cid}" th:text="${gginfo.title}">成都华钼科技有限公司官方网站正式成立</a></p>
+        </div>
+      </div>
+      <div class="banner_address">
+        <div class="add_list">
+          <p>电话：028-61666317</p>
+          <p>地址：成都市金牛区光荣西路67号1幢309号</p>
+        </div>
+      </div>
+      <div class="banner_onl">
+        <dl>
+          <dd>
+						
+          <a id="kf1" href="http://wpa.qq.com/msgrd?v=3&uin=979858199&site=qq&menu=yes&from=message&isappinstalled=0" target="_blank"><img src="index/images/onlie_1.png" /></a>
+          <a id="kf2" href="http://wpa.qq.com/msgrd?v=3&uin=979858199&site=qq&menu=yes&from=message&isappinstalled=0" target="_blank"><img src="index/images/onlie_2.png" /></a>
+          <a id="kf3" href="http://wpa.qq.com/msgrd?v=3&uin=979858199&site=qq&menu=yes&from=message&isappinstalled=0" target="_blank"><img src="index/images/onlie_3.png" /></a>
+          <a id="kf4" href="http://wpa.qq.com/msgrd?v=3&uin=979858199&site=qq&menu=yes&from=message&isappinstalled=0" target="_blank"><img src="index/images/onlie_4.png" /></a>
+          </dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+  <div class="con_warp">
+    <div class="con_left">
+      <div class="n_menu">
+        <div class="title">
+          <h1><img src="index/images/about_n_title.png" /></h1>
+        </div>
+        <ul>
+          <li><a href="about.html?type=1">公司简介</a></li>
+          <li><a href="about.html?type=2">企业文化</a></li>
+          <li><a href="about.html?type=3">经营理念</a></li>
+					<!--
+          <li><a href="">领导致辞</a></li>
+					-->
+        </ul>
+      </div>
+     <div class="index_case">
+        <div class="case_images">
+          <div class="focus">
+            <ul class="rslides f426x240">
+              <li><a th:href="'shownews.html?id='+${alinfo.cid}" target="_blank"><img th:src="${alinfo.pic}"/></a></li>
+              <li><a th:href="'shownews.html?id='+${alinfo.cid}" target="_blank"><img src="index/images/ppde-1.png"/></a></li>
+              <li><a th:href="'shownews.html?id='+${alinfo.cid}" target="_blank"><img src="index/images/ppde-2.png"/></a></li>
+            </ul>
+          </div>
+          <div class="case_text">
+            <dl>
+              <dt th:text="'客户：'+${alinfo.title}">客户：成都国际铁路港</dt>
+              <dd th:text="'简述：'+${alinfo.summary}">简述：本案例是一套一体化综合服务平台…</dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="con_right">
+      <div class="right_con">
+        <div class="about">
+          <div class="title">
+            <h1>公司简介</h1>
+            <span th:text="'您现在的位置是：首页 / 关于我们 / '+${pageinfo.title}"></span>
+          </div>
+          <div class="contect">
+            <div class="title_1" th:text="${pageinfo.title}">成都华钼科技有限公司</div>
+            <div class="title_menu">
+              <dl>
+                <dd th:text="'·发布者：'+${pageinfo.author}">·发布者：admin </dd>
+                <dd th:text="'·文章来源：'+${pageinfo.origin}">·文章来源：华钼科技有限公司</dd>
+              </dl>              
+            </div>
+            <div class="con_con_product">
+            <!-- 
+              <h1>
+                <dd th:text="'·'+${pageinfo.title}+':'">·公司介绍：</dd>
+              </h1>
+               -->
+              <dl> 
+                <dd th:text="${pageinfo.content}">·本公司成立于2009年，是一家软硬件集成服务提供商。2013年起，公司将主要发展方向定位为企业软件开发及互联网服务运营。
+本公司从事的主要项目有：
+（1）四川广电——运维工单系统，该系统目前正服务于成都市400多万广电用户；
+
+（2）铁路部门——客运列车检查系统（web结合手机端）、车辆段器具管理系统、货运客户短信客服系统等；
+
+（3）其他——“中欧班列”、成都国际陆港运营系统、中铁二院(土木工程进度管理系统)；
+
+
+公司秉持踏实做事、想客户之所想的服务理念，擅长与为企业改造传统作业流程，产品受到客户的好评，帮助客户改善了作业效率、节约了企业的成本。
+
+公司目前情况：公司目前处于初创阶段，有稳定的项目和现金流支撑，承接业务快速增长。
+
+公司未来计划：一是在企业定制软件领域做深做细；二是开展互联网+创新项目，帮助传统企业改造业务模式。
+
+员工在公司将得到：
+（1）全方位的能力提升。在我们这里，每位员工都需要独挡一面，而不是当一颗螺丝钉，员工来这里将参与需求调研、软件开发、系统实施全过程，学会换位思考、有效沟通、理解用户体验、制定合理的技术方案。
+（2）大型项目的实战机会，coding能力。
+（3）宽松的工作环境，弹性工作制，以项目为中心。
+（4）与能力相匹配的工资。
+（5）见证一个企业从小到大的发展历程，是员工职场经历的一笔重要财富。
+
+对于人才的态度：
+员工不仅是被雇佣者，同时是公司的主人，员工的薪水与绩效挂钩，一旦能力提升公司会主动为员工加薪。对于有突出贡献的员工，公司将与其签订分红协议。
+
+公司不适合：大公司体面头衔、短期利益的求职者。
+
+适合：具有创业者精神、愿意为摆脱草根现状付出汗水、愿意实质提升自身能力的求职者。
+
+愿与你共同奋斗、携手成长！ 
+                </dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div class="nav">
+    <ul>
+      <li><a href="index.html"><img src="index/images/foot_home.png" /></a></li>
+      <li><a href="about.html"><img src="index/images/foot_about.png" /></a></li>
+      <li><a href="product.html"><img src="index/images/foot_product.png" /></a></li>
+      <li><a href="list_article.html?type=3"><img src="index/images/foot_case.png" /></a></li>
+      <li><a href="list_article.html?type=1"><img src="index/images/foot_news.png" /></a></li>
+      <li><a href="contactus.html"><img src="index/images/foot_contact.png" /></a></li>
+      <li><a href="/login"><img src="index/images/foot_admin.png" /></a></li>
+    </ul>
+  </div>
+  <div class="foot">
+    <ul>
+      <li>友情链接：</li>
+     <li><a href="https://www.goodemall.com">一路全球跨境购</a></li>
+    </ul>
+    <p>Copyright © 2013 成都华钼科技有限公司 All Rights Reserved        网站建设：华钼科技</p>
+    <p>联系电话：028-61666317　         公司地址：成都市金牛区光荣西路67号1幢309号    邮箱：service@goodemall.com</p>
+  </div>
+</div>
+<script type="text/javascript" src="index/js/about.js"/>
+</body>
+</html>

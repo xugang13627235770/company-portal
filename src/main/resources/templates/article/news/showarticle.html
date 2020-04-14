@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<link href="/css/layui.css" rel="stylesheet">
+<link href="/css/style.css?v=4.1.0" rel="stylesheet">
+<script src="/js/jquery.min.js?v=2.1.4"></script>
+<script src="/js/bootstrap.min.js?v=3.3.6"></script>
+<script src="/js/bootstrap-paginator.min.js"></script>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-content">
+						<div class="form-group">
+							<label class="col-sm-2 control-label">标题：</label>
+							<div class="col-sm-10">
+								<span th:text="${news.title}"></span>
+							</div>
+						</div>
+					</div>
+					<div class="ibox-content">
+						<div class="form-group">
+							<label class="col-sm-2 control-label">摘要：</label>
+							<div class="col-sm-10">
+								<span th:text="${news.summary}"></span>
+							</div>
+						</div>
+					</div>
+
+						<div class="form-group" style="margin-top: 3px">
+							<div class="col-sm-12" style="padding-right: 1px;padding-left: 1px;">
+								<div class="ibox-content no-padding">
+									<div id="content_sn" style="min-height: 100px" th:utext="${news.content}"></div>
+								</div>
+							</div>
+						</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div th:include="include::footer"></div>
+	</script>
+</body>
+</html>

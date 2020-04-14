@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bootdo.indexpic.dao.PicTypeDao">
+
+	<select id="get" resultType="com.bootdo.indexpic.domain.PicTypeDO">
+		select `id`,`name` from a_pic_type where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.bootdo.indexpic.domain.PicTypeDO">
+		select `id`,`name` from a_pic_type
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="name != null and name != ''"> and name = #{name} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from a_pic_type
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="name != null and name != ''"> and name = #{name} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.bootdo.indexpic.domain.PicTypeDO" useGeneratedKeys="true" keyProperty="id">
+		insert into a_pic_type
+		(
+			`id`, 
+			`name`
+		)
+		values
+		(
+			#{id}, 
+			#{name}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.bootdo.indexpic.domain.PicTypeDO">
+		update a_pic_type 
+		<set>
+			<if test="name != null">`name` = #{name}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from a_pic_type where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from a_pic_type where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

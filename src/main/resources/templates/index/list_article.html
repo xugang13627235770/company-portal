@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="index/css/style.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="index/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="index/js/banner.js"></script>
+<script type="text/javascript" src="index/js/lrtk.js"></script>
+<script type="text/javascript" src="index/js/public.js"></script>
+<script type="text/javascript" src="index/js/banner_1.js"></script>
+<script type="text/javascript" src="index/js/productlist_roll.js"></script>
+<!--[if IE 6]>
+<script src="index/js/DDPngMin.js"></script>
+<script>DD_belatedPNG.fix('.leftimg img,.rightimg img,.ico');</script>
+<![endif]-->
+<title>文章列表</title>
+</head>
+<style>
+    .divset {
+     
+    }
+  </style>
+<body>
+<div class="header">
+  <div class="logo"><a href=""><img src="index/images/img/huamu.png" width="100%"/></a></div>
+  <div class="nav">
+    <ul>
+      <li><a href="index.html" class="s1"></a></li>
+      <li><a href="about.html" class="s2"></a></li>
+      <li><a href="product.html" class="s3"></a></li>
+      <li><a href="list_article.html?type=1" class="s4"></a></li>
+      <li><a href="contactus.html" class="s5"></a></li>
+    </ul>
+  </div>
+  <div class="tell"> <img src="index/images/tell1.jpg" /> </div>
+</div>
+<div class="warp_n">
+  <div class="banner_n">
+    <div id="focus">
+      <ul>
+        <li th:each="indexPic : ${indexPicList}">
+        <a th:href="${indexPic.content}" target="_blank"><img th:src="${indexPic.pic}"/></a>
+        </li>
+        <!-- 
+        <li><a href="" target="_blank"><img src="index/images/img/tab2.jpg"/></a></li>
+        <li><a href="" target="_blank"><img src="index/images/img/tab3.jpg"/></a></li>
+         -->
+      </ul>
+    </div>
+    <div class="banner_n_bo">
+      <div class="banner_noti">
+         <div class="title"><img src="index/images/notice_n_ab.png" /></div>
+        <div class="noti_con"> <span th:text="${#dates.format(gginfo.gtmCreate, '[yyyy-MM-dd]')}">[2013/09/05]</span>
+          <p><a th:href="'shownews.html?id='+${gginfo.cid}" th:text="${gginfo.title}">成都华钼科技有限公司官方网站正式成立</a></p>
+        </div>
+      </div>
+      <div class="banner_address">
+        <div class="add_list">
+          <p>电话：028-61666317</p>
+          <p>地址：成都市金牛区光荣西路67号1幢309号</p>
+        </div>
+      </div>
+      <div class="banner_onl">
+        <dl>
+          <dd><a id="kf1" href="http://wpa.qq.com/msgrd?v=3&uin=979858199&site=qq&menu=yes&from=message&isappinstalled=0" target="_blank"><img src="index/images/onlie_1.png" /></a>
+          <a id="kf2" href="http://wpa.qq.com/msgrd?v=3&uin=979858199&site=qq&menu=yes&from=message&isappinstalled=0" target="_blank"><img src="index/images/onlie_2.png" /></a>
+          <a id="kf3" href="http://wpa.qq.com/msgrd?v=3&uin=979858199&site=qq&menu=yes&from=message&isappinstalled=0" target="_blank"><img src="index/images/onlie_3.png" /></a>
+          <a id="kf4" href="http://wpa.qq.com/msgrd?v=3&uin=979858199&site=qq&menu=yes&from=message&isappinstalled=0" target="_blank"><img src="index/images/onlie_4.png" /></a></dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+  <div class="con_warp">
+    <div class="con_left">
+      <div class="n_menu">
+        <div class="title">
+          <h1><img src="index/images/about_n_title.png" /></h1>
+        </div>
+        <ul>
+          <li><a href="about.html?type=1">公司简介</a></li>
+          <li><a href="about.html?type=2">企业文化</a></li>
+          <li><a href="about.html?type=3">经营理念</a></li>
+					<!--
+          <li><a href="">领导致辞</a></li>
+					-->
+        </ul>
+      </div>
+      <div class="index_case">
+        <div class="case_images">
+          <div class="focus">
+            <ul class="rslides f426x240">
+              <li><a th:href="'shownews.html?id='+${alinfo.cid}" target="_blank"><img th:src="${alinfo.pic}"/></a></li>
+              <li><a th:href="'shownews.html?id='+${alinfo.cid}" target="_blank"><img src="index/images/ppde-1.png"/></a></li>
+              <li><a th:href="'shownews.html?id='+${alinfo.cid}" target="_blank"><img src="index/images/ppde-2.png"/></a></li>
+            </ul>
+          </div>
+          <div class="case_text">
+            <dl>
+              <dt th:text="'客户：'+${alinfo.title}">客户：成都国际铁路港</dt>
+              <dd th:text="'简述：'+${alinfo.summary}">简述：本案例是一套一体化综合服务平台…</dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="con_right">
+      <div class="right_con">
+        <div class="about">
+          <div class="title">
+            <h1>公司简介</h1>
+            <span>您现在的位置是：首页 / 关于我们 / 文章列表</span> </div>
+          <div class="news_list">
+            <ul>
+              <li th:each="news : ${newsList}">
+                <div class="news_con_list">
+                  <h1><img th:src="${news.pic}" /></h1>
+                  <dl>
+                    <dd><a th:href="'shownews.html?id='+${news.cid}" th:text="${news.title}" >办公家具设计时应该兼顾的因素</a></dd>
+                  </dl>
+                  <dl>
+                  <dd  th:utext="${news.summary}">华钼科技有限公司，成立于1988年，是一家集专业研发设水电费卡积分卡拉发掘的咖啡机阿卡飞机缴费卡发咖啡店，打飞机阿克苏罚款
+服务于一体的家具企业公司总部位于分公…</dd>
+</dl>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="fanye">  </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div class="nav">
+    <ul>
+      <li><a href="index.html"><img src="index/images/foot_home.png" /></a></li>
+      <li><a href="about.html"><img src="index/images/foot_about.png" /></a></li>
+      <li><a href="product.html"><img src="index/images/foot_product.png" /></a></li>
+      <li><a href="list_article.html?type=3"><img src="index/images/foot_case.png" /></a></li>
+      <li><a href="list_article.html?type=1"><img src="index/images/foot_news.png" /></a></li>
+      <li><a href="contactus.html"><img src="index/images/foot_contact.png" /></a></li>
+      <li><a href="/login"><img src="index/images/foot_admin.png" /></a></li>
+    </ul>
+  </div>
+  <div class="foot">
+    <ul>
+      <li>友情链接：</li>
+     <li><a href="https://www.goodemall.com">一路全球跨境购</a></li>
+    </ul>
+    <p>Copyright © 2013 成都华钼科技有限公司 All Rights Reserved        网站建设：华钼科技</p>
+    <p>联系电话：028-61666317　         公司地址：成都市金牛区光荣西路67号1幢309号    邮箱：service@goodemall.com</p>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>'
+<link href="/css/layui.css" rel="stylesheet">
+    <link href="/css/style.css?v=4.1.0" rel="stylesheet">
+    <script src="/js/jquery.min.js?v=2.1.4"></script>
+<script src="/js/bootstrap.min.js?v=3.3.6"></script>
+<script src="/js/bootstrap-paginator.min.js"></script>
+
+<script src="/js/content.js?v=1.0.0"></script>
+<script src="/js/layui.js"></script>
+<script src="/js/plugins/clipboard/clipboard.min.js"></script>
+<script src="/js/plugins/layer/layer.min.js"></script>
+<script src="/js/vue.min.js"></script>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-content">
+						<form class="form-horizontal m-t" id="signupForm">
+							<div class="form-group">	
+								<label class="col-sm-2 control-label">标题：</label>
+								<div class="col-sm-10">
+									<input id="title" name="title" class="form-control" type="text">
+								</div>
+							</div>
+														<div class="form-group">	
+								<label class="col-sm-2 control-label">链接：</label>
+								<div class="col-sm-10">
+									<input id="content" name="content" class="form-control" type="text">
+								</div>
+							</div>
+								<div class="form-group">
+								<label class="col-sm-2 control-label">类型：</label>
+								<div class="col-sm-4">
+								<select id="type" name="type"  class="form-control">
+								   <ul th:each="PicType : ${PicTypeList}"> 
+								       <option th:value="${PicType.id}" th:text="${PicType.name}">公司新闻</option>
+									</ul>		 
+      							 </select>
+								</div>
+								<label class="col-sm-2 control-label">状态：</label>
+								<div class="col-sm-4">
+								<label class="radio-inline"> <input type="radio"
+										name="status" value="1" checked="checked"/> 启用
+									</label>
+								 <label class="radio-inline"> <input type="radio"
+										name="status" value="0" /> 禁用
+									</label>
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<label class="col-sm-2 control-label">产品图：</label>
+								<div style="float: left;" class="col-sm-10">
+									<div class="col-md-2">
+										<button class="btn btn-primary btn-block avatar-save"
+											id="test1" type="button">选择图片上传</button>
+									</div>
+									<div class="col-sm-11">
+										<input id="pic" name="pic" class="form-control" type="hidden">
+										<img  src="#" id="coverPicture" width="300px"
+											height="200px">
+									</div>
+								</div>
+								<button style="display: none;" class="btn btn-danger btn-xs"
+									@click="remove(row.id)">删除该图片</button>
+							</div>
+																					<div class="form-group">
+								<div class="col-sm-8 col-sm-offset-3">
+									<button type="submit" class="btn btn-primary">提交</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+	</div>
+	</div>
+	<div th:include="include::footer"></div>
+	<script type="text/javascript">
+    layui.use('upload', function () {
+        var upload = layui.upload;
+        //执行实例
+        var uploadInst = upload.render({
+            elem: '#test1', //绑定元素
+            url: '/indexpic/indexPic/upload', //上传接口
+            size: 1000,
+            accept: 'file',
+            done: function (r) {
+                layer.msg(r.msg);
+                //alert(r.fileName);
+                $("#pic").val(r.fileName);
+                $("#coverPicture").attr('src',r.fileName); 
+            },
+            error: function (r) {
+                layer.msg(r.msg);
+            }
+        });
+    });
+
+</script>
+	<script type="text/javascript" src="/js/appjs/indexpic/indexPic/add.js">
+	</script>
+</body>
+</html>
