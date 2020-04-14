@@ -40,6 +40,9 @@ ZhangLG
 #### 项目相关帮助
 
 请: @ZhangLG  
+前台：http://localhost/home
+后台：http://localhost/login
+后台账号 admin/123456
 
 #### 项目运行示例
 
